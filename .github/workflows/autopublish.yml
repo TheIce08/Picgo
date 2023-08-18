@@ -8,7 +8,15 @@ jobs:
     name: npm-publish
     runs-on: ubuntu-latest
     steps:
-    - run: Python3 Update.py
+    - name: 发布npm包
+        if: env.NPM_TOKEN && env.NPM_NAME
+        run: |
+          node index.js
+          npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
+          npm publish
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_NAME: ${{ secrets.NPM_NAME }}
     - name: Checkout repository
       uses: actions/checkout@v2
     - name: Publish if version has been updated
@@ -24,3 +32,4 @@ jobs:
       env: # More info about the environment variables in the README
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Leave this as is, it's automatically generated
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }} # You need to set this in your repo settings
+      
