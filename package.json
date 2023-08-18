@@ -1,0 +1,19 @@
+{
+  "name": "theice-blog",
+  "version": "1.0.2",
+  "description": "静态资源仓库",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheIce08/Picgo.git#main\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b.git"
+  },
+  "author": "wangyuxuan08",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TheIce08/Picgo/issues"
+  },
+  "homepage": "https://github.com/TheIce08/Picgo/tree/main%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BC%1B%5BC%1B%5BC%1B%5BC%1B%5BC%1B%5BC%1B%5BC%1B%5BC%1B.git#readme"
+}
