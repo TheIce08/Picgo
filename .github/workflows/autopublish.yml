@@ -23,19 +23,19 @@ jobs:
       env: # More info about the environment variables in the README
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Leave this as is, it's automatically generated
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }} # You need to set this in your repo settings
-name: Deploy to NPM CDN
-'on':
-  - workflow_dispatch
-  - push
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16.x
-      - run: python3 new_version.py
-      - uses: JS-DevTools/npm-publish@v1
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
+    name: Deploy to NPM CDN
+    'on':
+      - workflow_dispatch
+      - push
+    jobs:
+      deploy:
+        runs-on: ubuntu-latest
+        steps:
+          - uses: actions/checkout@v3
+          - uses: actions/setup-node@v3
+            with:
+              node-version: 16.x
+           run: python3 new_version.py
+          - uses: JS-DevTools/npm-publish@v1
+            with:
+              token: ${{ secrets.NPM_TOKEN }}
