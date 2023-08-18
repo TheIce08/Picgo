@@ -22,7 +22,6 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: "12.x" 
-
 - name: 发布npm包
   if: env.NPM_TOKEN && env.NPM_NAME
   run: |
