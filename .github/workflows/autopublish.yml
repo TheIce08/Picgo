@@ -17,6 +17,7 @@ jobs:
       - name: 发布npm包
         if: env.NPM_TOKEN && env.NPM_NAME
         run: |
+          npm install fs-extra
           node index.js
           npm config set 
           npm publish
