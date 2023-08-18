@@ -17,6 +17,9 @@ jobs:
       - name: 发布npm包
         if: env.NPM_TOKEN && env.NPM_NAME
         run: |
+          npm cache clean -f
+          npm install -g n
+          n stable
           node index.js
           npm config set 
           npm publish
