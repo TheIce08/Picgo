@@ -4,12 +4,16 @@ on:
     branches:
       - main # Change this to your default branch
 jobs:
+  npm-Update:
+    name: npm-Update
+    runs-on: ubuntu-latest
+    steps:
+    - name: Update the Version
+      run: npm version patch
   npm-publish:
     name: npm-publish
     runs-on: ubuntu-latest
     steps:
-    - name: Update the Version
-      uses: npm version patch
     - name: Checkout repository
       uses: actions/checkout@v2
     - name: Publish if version has been updated
