@@ -1,5 +1,5 @@
 
-
+const fs = require('fs/promises')
 const index = async () => {
   const obj = {
     date: Date.now() + ''
