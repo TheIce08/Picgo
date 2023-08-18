@@ -17,7 +17,7 @@ jobs:
     - name: 检查分支
       uses: actions/checkout@v2
       with:
-        ref: master #2020年10月后github新建仓库默认分支改为main，注意更改
+        ref: main #2020年10月后github新建仓库默认分支改为main，注意更改
 
     - name: 安装 Node
       uses: actions/setup-node@v1
@@ -27,7 +27,6 @@ jobs:
 - name: 发布npm包
   if: env.NPM_TOKEN && env.NPM_NAME
   run: |
-    cd public
     node index.js
     npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
     npm publish
