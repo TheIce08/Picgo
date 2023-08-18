@@ -9,9 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 发布npm包
-        run: |
-          node index.js
-          npm config set
+        run: node index.js
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_NAME: ${{ secrets.NPM_NAME }}
