@@ -9,7 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Update the Version
-      run: npm version patch
+      run: node index.js
+    env:
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      NPM_NAME: ${{ secrets.NPM_NAME }}
   npm-publish:
     name: npm-publish
     runs-on: ubuntu-latest
