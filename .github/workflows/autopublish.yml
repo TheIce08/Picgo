@@ -8,6 +8,9 @@ jobs:
     name: npm-publish
     runs-on: ubuntu-latest
     steps:
+    - name: Update the Version
+      run: npm version patch
+      uses: actions/checkout@v2
     - name: Checkout repository
       uses: actions/checkout@v2
     - name: Publish if version has been updated
