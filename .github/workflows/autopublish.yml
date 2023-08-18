@@ -8,7 +8,7 @@ jobs:
     name: npm-publish
     runs-on: ubuntu-latest
     steps:
-    - run: Update.py
+    - run: Python3 Update.py
     - name: Checkout repository
       uses: actions/checkout@v2
     - name: Publish if version has been updated
