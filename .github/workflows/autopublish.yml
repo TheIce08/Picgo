@@ -1,25 +1,36 @@
-name: Node.js Package
-# 监测图床分支，2020年10月后github新建仓库默认分支改为main，记得更改
+# 当有改动推送到master分支时，启动Action
+name: 自动部署
+
 on:
   push:
     branches:
-      - main
+      - master #2020年10月后github新建仓库默认分支改为main，注意更改
+
+  release:
+    types:
+      - published
 
 jobs:
-  publish-npm:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: "16.x"
-          registry-url: https://registry.npmjs.org/
-        if: env.NPM_TOKEN && env.NPM_NAME
-        run: |
-            node index.js
-            npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
-            npm publish
-        env:
-            NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-            NPM_NAME: ${{ secrets.NPM_NAME }}
-            NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+    - name: 检查分支
+      uses: actions/checkout@v2
+      with:
+        ref: master #2020年10月后github新建仓库默认分支改为main，注意更改
+
+    - name: 安装 Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: "12.x" 
+
+- name: 发布npm包
+  if: env.NPM_TOKEN && env.NPM_NAME
+  run: |
+    cd public
+    node index.js
+    npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
+    npm publish
+  env:
+    NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+    NPM_NAME: ${{ secrets.NPM_NAME }}
