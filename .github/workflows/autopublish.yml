@@ -11,7 +11,7 @@ jobs:
     - name: 发布npm包
         run: |
           node index.js
-          npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
+          npm config set
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_NAME: ${{ secrets.NPM_NAME }}
