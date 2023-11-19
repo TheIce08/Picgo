@@ -206,7 +206,7 @@ function showWelcome() {
                     posdesc = "永定贼有残留地鬼嚎，迎击光非岁玉";
                     break;
                 case "澳门特别行政区":
-                    posdesc = "性感荷官，在线发牌";
+                    posdesc = "带我去玩玩呗";
                     break;
                 default:
                     posdesc = "带我去你的城市逛逛吧！";
